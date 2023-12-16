@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1220</width>
+    <height>728</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WildWest</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(D:/mya/kr/prjct/fon.jpg);
+background-position: center;
+background-size: cover;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="signup_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>290</y>
+      <width>316</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(0, 255, 255);
+background-color: rgb(200, 0, 235);
+border: 1px solid rgb(200, 0, 245);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 7px;
+width: 100 px;
+height: 45px;
+background-image: Off;
+}
+QPushButton:hover {
+background-color: rgb(255, 129, 245);
+}
+QPushButton:pressed {
+background-color: rgba(200, 0, 245, 65);
+}</string>
+    </property>
+    <property name="text">
+     <string>Регистрация</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="enter_btn">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>270</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(0, 255, 255);
+background-color: rgb(255, 141, 2);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(200, 0, 245);
+border-radius: 7px;
+width: 100 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgb(255, 129, 245);
+}
+QPushButton:pressed {
+background-color: rgba(200, 0, 245, 65);
+}</string>
+    </property>
+    <property name="text">
+     <string>Войти</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
