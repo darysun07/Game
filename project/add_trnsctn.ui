@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>412</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>newTrnsctn</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 0, 255);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">border: 1 px solid rgba(255, 85, 255, 35);
+border-radius: 8px;
+background-color: rgba(170, 85, 255, 150);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(170, 85, 255);
+font: 75 16pt &quot;MS Shell Dlg 2&quot;;
+border: none;</string>
+        </property>
+        <property name="text">
+         <string>Добавить транзакцию</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cbox_select_ctgry">
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+color: rgb(0, 255, 255);
+background-color: rgb(255, 0, 255);
+font: 11pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;
+}
+
+QComboBox:item {
+color: rgb(0, 170, 255);
+background-color: rgb(255, 0, 255);
+font: 11pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;
+}
+
+</string>
+        </property>
+        <property name="currentText">
+         <string>Кредиты, налоги</string>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>Кредиты, налоги</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Продукты питания, промтовары, одежда</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Транспорт</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Другое(досуг и т.д.)</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="de_date">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 255, 255);
+background-color: rgb(255, 0, 255);
+font: 13pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+        <property name="date">
+         <date>
+          <year>2023</year>
+          <month>1</month>
+          <day>1</day>
+         </date>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_dscribe">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 0, 255);
+background-color: rgba(0, 255, 255, 150);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Описание</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_blnce">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 0, 255);
+background-color: rgba(0, 255, 255, 150);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Баланс</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="select_up_or_down">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 255, 255);
+background-color: rgb(255, 0, 255);
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+padding-left: 15px;</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Доход</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Расход(затраты)</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_save_trnsctn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(255, 255, 255);
+background-color: rgb(170, 85, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(200, 0, 245);
+border-radius: 7px;
+width: 200 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgba(170, 85, 255, 100);
+}
+QPushButton:pressed {
+background-color: rgba(170, 85, 255, 65);
+}</string>
+        </property>
+        <property name="text">
+         <string>Сохранить</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
