@@ -22,89 +22,26 @@ background-position: center;
 background-size: cover;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QPushButton" name="signup_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>60</y>
-      <width>941</width>
-      <height>101</height>
+      <x>1000</x>
+      <y>150</y>
+      <width>181</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="enter_btn">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-color: rgb(0, 255, 255);
-background-color: rgb(255, 141, 2);
-font: 14pt &quot;MS Shell Dlg 2&quot;;
-border: 1px solid rgb(200, 0, 245);
-border-radius: 7px;
-width: 100 px;
-height: 45px;
-}
-QPushButton:hover {
-background-color: rgb(255, 129, 245);
-}
-QPushButton:pressed {
-background-color: rgba(200, 0, 245, 65);
-}</string>
-       </property>
-       <property name="text">
-        <string>Войти</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="enter_btn_2">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-color: rgb(0, 255, 255);
-background-color: rgb(255, 141, 2);
-font: 14pt &quot;MS Shell Dlg 2&quot;;
-border: 1px solid rgb(200, 0, 245);
-border-radius: 7px;
-width: 100 px;
-height: 45px;
-}
-QPushButton:hover {
-background-color: rgb(255, 129, 245);
-}
-QPushButton:pressed {
-background-color: rgba(200, 0, 245, 65);
-}</string>
-       </property>
-       <property name="text">
-        <string>Правила</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="signup_btn">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="contextMenuPolicy">
-        <enum>Qt::DefaultContextMenu</enum>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
 color: rgb(0, 255, 255);
 background-color: rgb(200, 0, 235);
 border: 1px solid rgb(200, 0, 245);
@@ -120,13 +57,125 @@ background-color: rgb(255, 129, 245);
 QPushButton:pressed {
 background-color: rgba(200, 0, 245, 65);
 }</string>
-       </property>
-       <property name="text">
-        <string>Регистрация</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="text">
+     <string>Регистрация</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="enter_btn">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>150</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(0, 255, 255);
+background-color: rgb(255, 141, 2);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(200, 0, 245);
+border-radius: 7px;
+width: 100 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgb(255, 129, 245);
+}
+QPushButton:pressed {
+background-color: rgba(200, 0, 245, 65);
+}</string>
+    </property>
+    <property name="text">
+     <string>Войти</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pravila">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(0, 255, 255);
+background-color: rgb(255, 141, 2);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(200, 0, 245);
+border-radius: 7px;
+width: 100 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgb(255, 129, 245);
+}
+QPushButton:pressed {
+background-color: rgba(200, 0, 245, 65);
+}</string>
+    </property>
+    <property name="text">
+     <string>Правила</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="name_check">
+    <property name="geometry">
+     <rect>
+      <x>881</x>
+      <y>40</y>
+      <width>179</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 255);
+font: 12pt &quot;MV Boli&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Имя:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password_check">
+    <property name="geometry">
+     <rect>
+      <x>881</x>
+      <y>88</y>
+      <width>179</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 255);
+font: 12pt &quot;MV Boli&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Пароль:</string>
+    </property>
    </widget>
   </widget>
  </widget>

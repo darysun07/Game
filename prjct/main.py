@@ -7,7 +7,6 @@ from PyQt5.QtSql import QSqlTableModel
 
 import sqlite3
 
-
 class LoginDb():
     def __init__(self, dbname):
         self.dbname = dbname
@@ -38,6 +37,7 @@ class Home(QMainWindow):
             self.loginDb.conn.commit()
         self.enter_btn.clicked.connect(self.loginCheck)
         self.signup_btn.clicked.connect(self.signup_window_opn)
+        self.pravila.clicked.connect(self.pravila_window_opn)
 
     def glav_window_opn(self):
         self.glav_window = Glav()
@@ -46,6 +46,11 @@ class Home(QMainWindow):
     def signup_window_opn(self):
         self.signup_window_opn = Signup()
         self.signup_window_opn.show()
+        self.close()
+
+    def pravila_window_opn(self):
+        self.pravila_window_opn = Pravila()
+        self.pravila_window_opn.show()
         self.close()
 
     def loginCheck(self):
@@ -68,7 +73,7 @@ class Home(QMainWindow):
 class Signup(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('log.ui', self)
+        uic.loadUi('login.ui', self)
         self.reg_btn.clicked.connect(self.insertData)
 
         self.loginDb = LoginDb('login.db')
@@ -95,7 +100,16 @@ class Signup(QMainWindow):
             self.close()
 
 
+class Glav(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('glav.ui', self)
 
+
+class Pravila(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('pravila.ui', self)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
