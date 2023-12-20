@@ -7,7 +7,8 @@ from PyQt5.QtSql import QSqlTableModel
 
 import sqlite3
 
-class LoginDb():
+
+class LoginDb:
     def __init__(self, dbname):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname)
