@@ -1,4 +1,5 @@
 import sys
+import pygame
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QApplication, QMainWindow
@@ -101,16 +102,55 @@ class Signup(QMainWindow):
             self.close()
 
 
-class Glav(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('glav.ui', self)
+class Glav(pygame.sprite.Sprite):
+    def __init__(self, *group):
+        super().__init__(*group)
+        self.image = pygame.image.load('ground.png').convert_alpha()
+        self.fon = pygame.image.load('fon2.png').convert_alpha()
+        self.rect = self.image.get_rect()
+        self.rect.x = 0
+        self.rect.y = 535
+        self.fon_coord = self.fon.get_rect()
+        self.fon_coord.x = 0
+        self.fon_coord.y = 0
+        screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
+        screen.blit(self.image, (self.rect.x, self.rect.y))
+
+    #def hero(self):
+        
+
+
+pygame.init()
+size = width, height = 1200, 700
+screen = pygame.display.set_mode(size)
+running = True
+all_sprites = pygame.sprite.Group()
+Glav(all_sprites)
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    all_sprites.update()
+    all_sprites.draw(screen)
+    pygame.display.flip()
+pygame.quit()
 
 
 class Pravila(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('pravila.ui', self)
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
