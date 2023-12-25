@@ -142,16 +142,6 @@ class Pravila(QMainWindow):
         uic.loadUi('pravila.ui', self)
 
 
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     st = Home()
