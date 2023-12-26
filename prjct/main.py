@@ -42,7 +42,7 @@ class Home(QMainWindow):
         self.pravila.clicked.connect(self.pravila_window_opn)
 
     def glav_window_opn(self):
-        self.glav_window = Glav()
+        self.glav_window = Fon()
         self.glav_window.show()
 
     def signup_window_opn(self):
@@ -102,7 +102,7 @@ class Signup(QMainWindow):
             self.close()
 
 
-class Glav(pygame.sprite.Sprite):
+class Fon(pygame.sprite.Sprite):
     def __init__(self, *group):
         super().__init__(*group)
         self.image = pygame.image.load('ground.png').convert_alpha()
@@ -113,25 +113,55 @@ class Glav(pygame.sprite.Sprite):
         self.fon_coord = self.fon.get_rect()
         self.fon_coord.x = 0
         self.fon_coord.y = 0
-        screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
-        screen.blit(self.image, (self.rect.x, self.rect.y))
+        #screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
+        #screen.blit(self.image, (self.rect.x, self.rect.y))
 
-    #def hero(self):
-        
+
+class Hero(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+        self.hero = pygame.image.load('hero.png').convert()
+        self.rect_hero = self.hero.get_rect()
+        self.rect_hero.x = 0
+        self.rect_hero.y = 150
 
 
 pygame.init()
 size = width, height = 1200, 700
 screen = pygame.display.set_mode(size)
 running = True
-all_sprites = pygame.sprite.Group()
-Glav(all_sprites)
+
+fon = Fon()
+hero = Hero(50, 50)
+hero_f_sprites = pygame.sprite.Group()
+hero_f_sprites.add(fon, hero)
+image = pygame.image.load('ground.png').convert_alpha()
+screen.blit(image, (width, height))
+vel = 5
+jump = False
+jumpCount = 0
+jumpMax = 15
+FPS = 60
+clock = pygame.time.Clock()
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    all_sprites.update()
-    all_sprites.draw(screen)
+            if event.type == pygame.KEYDOWN:
+                if not jump and event.key == pygame.K_SPACE:
+                    jump = True
+                    jumpCount = jumpMax
+        keys = pygame.key.get_pressed()
+        if jump:
+            y_h -= jumpCount
+            if jumpCount > -jumpMax:
+                jumpCount -= 1
+            else:
+                jump = False
+    #rect.topleft = (x, y)
+    hero_f_sprites.update()
+    hero_f_sprites.draw(screen)
+    clock.tick(FPS)
     pygame.display.flip()
 pygame.quit()
 
