@@ -102,20 +102,6 @@ class Signup(QMainWindow):
             self.close()
 
 
-#class Fon(pygame.sprite.Sprite):
-#    def __init__(self, *group):
-#        super().__init__(*group)
-#        self.image = pygame.image.load('ground.png').convert_alpha()
-#        self.fon = pygame.image.load('fon2.png').convert_alpha()
-#        self.rect = self.image.get_rect()
-#        self.rect.x = 0
-#        self.rect.y = 535
-#        self.fon_coord = self.fon.get_rect()
-#        self.fon_coord.x = 0
-#        self.fon_coord.y = 0
-#        #screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
-#        #screen.blit(self.image, (self.rect.x, self.rect.y))
-
 pygame.init()
 
 
@@ -142,8 +128,6 @@ class Hero(pygame.sprite.Sprite):
 
     def draw(self, surface):
         surface.blit(self.hero, (self.rect_hero.x, self.rect_hero.y))
-
-
 
 
 running = True
@@ -176,9 +160,6 @@ while running:
                 jump = False
     hero1.update()
     hero1.draw(screen)
-    #rect.topleft = (x, y)
-    #hero_f_sprites.update()
-    #hero_f_sprites.draw(screen)
     clock.tick(FPS)
     pygame.display.flip()
 pygame.quit()
