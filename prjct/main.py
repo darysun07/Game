@@ -133,28 +133,31 @@ def draw_bg():
 
 class Hero(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        super().__init__()
-        self.hero = pygame.image.load('hero.png').convert()
+        pygame.sprite.Sprite.__init__(self)
+        self.hero = pygame.image.load('hero.png').convert_alpha()
+        self.hero.set_colorkey((255, 255, 255))
         self.rect_hero = self.hero.get_rect()
-        self.rect_hero.x = 0
-        self.rect_hero.y = 150
+        self.rect_hero.x = x
+        self.rect_hero.y = y
+
+    def draw(self, surface):
+        surface.blit(self.hero, (self.rect_hero.x, self.rect_hero.y))
 
 
 
 
 running = True
 
-#hero = Hero(50, 50)
-#hero_f_sprites = pygame.sprite.Group()
-#hero_f_sprites.add(fon, hero)
-#image = pygame.image.load('ground.png').convert_alpha()
-#screen.blit(image, (width, height))
+
 vel = 5
 jump = False
 jumpCount = 0
 jumpMax = 15
 FPS = 60
 clock = pygame.time.Clock()
+
+hero1 = Hero(250, 250)
+
 while running:
     draw_bg()
     for event in pygame.event.get():
@@ -171,6 +174,8 @@ while running:
                 jumpCount -= 1
             else:
                 jump = False
+    hero1.update()
+    hero1.draw(screen)
     #rect.topleft = (x, y)
     #hero_f_sprites.update()
     #hero_f_sprites.draw(screen)
