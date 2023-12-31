@@ -102,19 +102,33 @@ class Signup(QMainWindow):
             self.close()
 
 
-class Fon(pygame.sprite.Sprite):
-    def __init__(self, *group):
-        super().__init__(*group)
-        self.image = pygame.image.load('ground.png').convert_alpha()
-        self.fon = pygame.image.load('fon2.png').convert_alpha()
-        self.rect = self.image.get_rect()
-        self.rect.x = 0
-        self.rect.y = 535
-        self.fon_coord = self.fon.get_rect()
-        self.fon_coord.x = 0
-        self.fon_coord.y = 0
-        #screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
-        #screen.blit(self.image, (self.rect.x, self.rect.y))
+#class Fon(pygame.sprite.Sprite):
+#    def __init__(self, *group):
+#        super().__init__(*group)
+#        self.image = pygame.image.load('ground.png').convert_alpha()
+#        self.fon = pygame.image.load('fon2.png').convert_alpha()
+#        self.rect = self.image.get_rect()
+#        self.rect.x = 0
+#        self.rect.y = 535
+#        self.fon_coord = self.fon.get_rect()
+#        self.fon_coord.x = 0
+#        self.fon_coord.y = 0
+#        #screen.blit(self.fon, (self.fon_coord.x, self.fon_coord.y))
+#        #screen.blit(self.image, (self.rect.x, self.rect.y))
+
+pygame.init()
+
+
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 700
+size = SCREEN_WIDTH, SCREEN_HEIGHT
+screen = pygame.display.set_mode(size)
+bg_im = pygame.image.load("fon2.png").convert_alpha()
+
+
+def draw_bg():
+  scaled_bg = pygame.transform.scale(bg_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
+  screen.blit(scaled_bg, (0, 0))
 
 
 class Hero(pygame.sprite.Sprite):
@@ -126,17 +140,15 @@ class Hero(pygame.sprite.Sprite):
         self.rect_hero.y = 150
 
 
-pygame.init()
-size = width, height = 1200, 700
-screen = pygame.display.set_mode(size)
+
+
 running = True
 
-fon = Fon()
-hero = Hero(50, 50)
-hero_f_sprites = pygame.sprite.Group()
-hero_f_sprites.add(fon, hero)
-image = pygame.image.load('ground.png').convert_alpha()
-screen.blit(image, (width, height))
+#hero = Hero(50, 50)
+#hero_f_sprites = pygame.sprite.Group()
+#hero_f_sprites.add(fon, hero)
+#image = pygame.image.load('ground.png').convert_alpha()
+#screen.blit(image, (width, height))
 vel = 5
 jump = False
 jumpCount = 0
@@ -144,6 +156,7 @@ jumpMax = 15
 FPS = 60
 clock = pygame.time.Clock()
 while running:
+    draw_bg()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -159,8 +172,8 @@ while running:
             else:
                 jump = False
     #rect.topleft = (x, y)
-    hero_f_sprites.update()
-    hero_f_sprites.draw(screen)
+    #hero_f_sprites.update()
+    #hero_f_sprites.draw(screen)
     clock.tick(FPS)
     pygame.display.flip()
 pygame.quit()
