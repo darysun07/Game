@@ -135,7 +135,7 @@ while run:
       round_over_time = pygame.time.get_ticks()
   else:
     #display victory image
-    screen.blit(victory_img, (360, 150))
+    screen.blit(victory_img, (500, 300))
     if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
       round_over = False
       intro_count = 3
