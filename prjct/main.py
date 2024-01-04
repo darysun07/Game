@@ -1,6 +1,6 @@
 import pygame
 from pygame import mixer
-from fighter import Fighter
+from player import Player
 
 mixer.init()
 pygame.init()
@@ -84,8 +84,8 @@ def draw_health_bar(health, x, y):
 
 
 #create two instances of fighters
-fighter_1 = Fighter(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-fighter_2 = Fighter(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
+player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
 
 #game loop
 run = True
@@ -97,16 +97,16 @@ while run:
   draw_bg()
 
   #show player stats
-  draw_health_bar(fighter_1.health, 40, 20)
-  draw_health_bar(fighter_2.health, 700, 20)
-  draw_text("P1: " + str(score[0]), score_font, RED, 40, 60)
-  draw_text("P2: " + str(score[1]), score_font, RED, 700, 60)
+  draw_health_bar(player_1.health, 60, 20)
+  draw_health_bar(player_2.health, 730, 20)
+  draw_text("P1: " + str(score[0]), score_font, RED, 60, 60)
+  draw_text("P2: " + str(score[1]), score_font, RED, 730, 60)
 
   #update countdown
   if intro_count <= 0:
     #move fighters
-    fighter_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_2, round_over)
-    fighter_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, fighter_1, round_over)
+    player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
+    player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
   else:
     #display count timer
     draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
@@ -116,20 +116,20 @@ while run:
       last_count_update = pygame.time.get_ticks()
 
   #update fighters
-  fighter_1.update()
-  fighter_2.update()
+  player_1.update()
+  player_2.update()
 
   #draw fighters
-  fighter_1.draw(screen)
-  fighter_2.draw(screen)
+  player_1.draw(screen)
+  player_2.draw(screen)
 
   #check for player defeat
   if round_over == False:
-    if fighter_1.alive == False:
+    if player_1.alive == False:
       score[1] += 1
       round_over = True
       round_over_time = pygame.time.get_ticks()
-    elif fighter_2.alive == False:
+    elif player_2.alive == False:
       score[0] += 1
       round_over = True
       round_over_time = pygame.time.get_ticks()
@@ -139,8 +139,8 @@ while run:
     if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
       round_over = False
       intro_count = 3
-      fighter_1 = Fighter(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-      fighter_2 = Fighter(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+      player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
+      player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
 
   #event handler
   for event in pygame.event.get():
