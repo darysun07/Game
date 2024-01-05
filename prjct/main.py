@@ -50,6 +50,8 @@ magic_fx.set_volume(0.75)
 #load background image
 bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
 
+start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
+
 #load spritesheets
 warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
 wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
@@ -57,13 +59,22 @@ wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").conv
 #load vicory image
 victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
+game_over_img = pygame.image.load("GameOver.png").convert_alpha()
+
 #define number of steps in each animation
 WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
 WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
+FLAG = False
+
 #define font
 count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
 score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
+
+
+def start_screen():
+    scaled_st = pygame.transform.scale(start_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen.blit(scaled_st, (0, 0))
 
 
 #function for drawing text
@@ -96,6 +107,8 @@ while run:
 
     clock.tick(FPS)
 
+    start_screen()
+
     #draw background
     draw_bg()
 
@@ -127,12 +140,12 @@ while run:
     player_2.draw(screen)
 
     #check for player defeat
-    if round_over == False:
-        if player_1.alive == False:
+    if not round_over:
+        if not player_1.alive:
             score[1] += 1
             round_over = True
             round_over_time = pygame.time.get_ticks()
-        elif player_2.alive == False:
+        elif not player_2.alive:
             score[0] += 1
             round_over = True
             round_over_time = pygame.time.get_ticks()
@@ -144,6 +157,10 @@ while run:
             intro_count = 3
             player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
             player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+
+    if score[0] == 3 or score[1] == 3:
+        screen.blit(game_over_img, (500, 300))
+        round_over = True
 
     #event handler
     for event in pygame.event.get():
