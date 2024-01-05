@@ -17,9 +17,9 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(D:/mya/kr/prjct/fon.jpg);
-background-position: center;
-background-size: cover;</string>
+   <string notr="true">background-image: url(fon.jpg);
+background-size: cover;
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="signup_btn">
@@ -28,8 +28,8 @@ background-size: cover;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>1000</x>
-      <y>150</y>
+      <x>710</x>
+      <y>560</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -42,9 +42,9 @@ background-size: cover;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-color: rgb(0, 255, 255);
+color: rgb(255, 170, 127);
 background-color: rgb(200, 0, 235);
-border: 1px solid rgb(200, 0, 245);
+border: 1px solid rgb(255, 0, 0);
 font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 7px;
 width: 100 px;
@@ -65,8 +65,8 @@ background-color: rgba(200, 0, 245, 65);
    <widget class="QPushButton" name="enter_btn">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>150</y>
+      <x>340</x>
+      <y>560</y>
       <width>191</width>
       <height>71</height>
      </rect>
@@ -88,10 +88,10 @@ background-color: rgba(200, 0, 245, 65);
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-color: rgb(0, 255, 255);
+color: rgb(255, 170, 127);
 background-color: rgb(255, 141, 2);
 font: 14pt &quot;MS Shell Dlg 2&quot;;
-border: 1px solid rgb(200, 0, 245);
+border: 1px solid rgb(255, 0, 0);
 border-radius: 7px;
 width: 100 px;
 height: 45px;
@@ -110,8 +110,8 @@ background-color: rgba(200, 0, 245, 65);
    <widget class="QPushButton" name="pravila">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>40</y>
+      <x>50</x>
+      <y>370</y>
       <width>201</width>
       <height>71</height>
      </rect>
@@ -124,10 +124,10 @@ background-color: rgba(200, 0, 245, 65);
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-color: rgb(0, 255, 255);
+color: rgb(255, 170, 127);
 background-color: rgb(255, 141, 2);
 font: 14pt &quot;MS Shell Dlg 2&quot;;
-border: 1px solid rgb(200, 0, 245);
+border: 1px solid rgb(255, 0, 0);
 border-radius: 7px;
 width: 100 px;
 height: 45px;
@@ -146,15 +146,17 @@ background-color: rgba(200, 0, 245, 65);
    <widget class="QLineEdit" name="name_check">
     <property name="geometry">
      <rect>
-      <x>881</x>
-      <y>40</y>
-      <width>179</width>
-      <height>32</height>
+      <x>520</x>
+      <y>370</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 255);
-font: 12pt &quot;MV Boli&quot;;</string>
+     <string notr="true">color: rgb(255, 170, 127);
+background-color: rgb(255, 0, 255);
+font: 12pt &quot;MV Boli&quot;;
+border: 1px solid rgb(255, 0, 0);</string>
     </property>
     <property name="placeholderText">
      <string>Имя:</string>
@@ -163,15 +165,17 @@ font: 12pt &quot;MV Boli&quot;;</string>
    <widget class="QLineEdit" name="password_check">
     <property name="geometry">
      <rect>
-      <x>881</x>
-      <y>88</y>
-      <width>179</width>
-      <height>32</height>
+      <x>520</x>
+      <y>440</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 255);
-font: 12pt &quot;MV Boli&quot;;</string>
+     <string notr="true">color: rgb(255, 170, 127);
+background-color: rgb(255, 0, 255);
+font: 12pt &quot;MV Boli&quot;;
+border: 1px solid rgb(255, 0, 0);</string>
     </property>
     <property name="placeholderText">
      <string>Пароль:</string>

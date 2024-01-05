@@ -14,24 +14,28 @@
    <string>pravila</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 0, 0);</string>
+   <string notr="true">background-image: url(fon.jpg);
+background-size: cover;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>-20</y>
-      <width>191</width>
-      <height>151</height>
+      <x>150</x>
+      <y>-15</y>
+      <width>471</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
+     <string notr="true">color: rgb(255, 170, 127);
 font: 28pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string>Правила</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

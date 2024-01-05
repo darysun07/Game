@@ -14,20 +14,21 @@
    <string>SIGNUP</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 141, 2);</string>
+   <string notr="true">background-image: url(fon.jpg);
+background-size: cover;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
+      <x>150</x>
+      <y>-15</y>
       <width>471</width>
       <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
+     <string notr="true">color: rgb(255, 170, 127);
 font: 25pt &quot;MV Boli&quot;;</string>
     </property>
     <property name="text">
@@ -51,7 +52,7 @@ font: 25pt &quot;MV Boli&quot;;</string>
 color: rgb(255, 170, 127);
 background-color:rgb(255, 85, 0);
 font: 14pt &quot;MS Shell Dlg 2&quot;;
-border: 1px solid rrgb(255, 0, 0);
+border: 1px solid rgb(255, 170, 127);
 border-radius: 7px;
 width: 200 px;
 height: 45px;
@@ -67,39 +68,43 @@ background-color: rgba(255, 85, 0, 60);
      <string>Авторизоваться</string>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QLineEdit" name="name_save">
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>230</y>
-      <width>141</width>
-      <height>141</height>
+      <y>240</y>
+      <width>139</width>
+      <height>30</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
-      <widget class="QLineEdit" name="password_save">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 0, 0);
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
-       </property>
-       <property name="placeholderText">
-        <string>Пароль:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="name_save">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 0, 0);
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
-       </property>
-       <property name="placeholderText">
-        <string>Имя:</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 170, 127);
+background-color: rgb(255, 0, 0);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(255, 170, 127);</string>
+    </property>
+    <property name="placeholderText">
+     <string>Имя:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password_save">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>300</y>
+      <width>139</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 170, 127);
+background-color: rgb(255, 0, 0);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(255, 170, 127);</string>
+    </property>
+    <property name="placeholderText">
+     <string>Пароль:</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -112,7 +117,6 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
