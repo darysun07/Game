@@ -130,16 +130,16 @@ class Player:
             self.health = 0
             self.alive = False
             self.update_action(6)#6:death
-        elif self.hit == True:
+        elif self.hit:
             self.update_action(5)#5:hit
-        elif self.attacking == True:
+        elif self.attacking:
             if self.attack_type == 1:
                 self.update_action(3)#3:attack1
             elif self.attack_type == 2:
                 self.update_action(4)#4:attack2
-        elif self.jump == True:
+        elif self.jump:
             self.update_action(2)#2:jump
-        elif self.running == True:
+        elif self.running:
             self.update_action(1)#1:run
         else:
             self.update_action(0)#0:idle
@@ -154,7 +154,7 @@ class Player:
         #check if the animation has finished
         if self.frame_index >= len(self.animation_list[self.action]):
             #if the player is dead then end the animation
-            if self.alive == False:
+            if not self.alive:
                 self.frame_index = len(self.animation_list[self.action]) - 1
             else:
                 self.frame_index = 0
