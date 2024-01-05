@@ -25,7 +25,6 @@ class Player:
         self.health = 100
         self.alive = True
 
-
     def load_images(self, sprite_sheet, animation_steps):
       #extract images from spritesheet
         animation_list = []
@@ -124,7 +123,6 @@ class Player:
         self.rect.x += dx
         self.rect.y += dy
 
-
     #handle animation updates
     def update(self):
         #check what action the player is performing
@@ -176,7 +174,8 @@ class Player:
             #execute attack
             self.attacking = True
             self.attack_sound.play()
-            attacking_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip), self.rect.y, 2 * self.rect.width, self.rect.height)
+            attacking_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip),
+                                         self.rect.y, 2 * self.rect.width, self.rect.height)
             if attacking_rect.colliderect(target.rect):
                 target.health -= 10
                 target.hit = True
@@ -191,4 +190,5 @@ class Player:
 
     def draw(self, surface):
         img = pygame.transform.flip(self.image, self.flip, False)
-        surface.blit(img, (self.rect.x - (self.offset[0] * self.image_scale), self.rect.y - (self.offset[1] * self.image_scale)))
+        surface.blit(img, (self.rect.x - (self.offset[0] * self.image_scale),
+                           self.rect.y - (self.offset[1] * self.image_scale)))

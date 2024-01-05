@@ -65,22 +65,25 @@ WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
 score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
 
+
 #function for drawing text
 def draw_text(text, font, text_col, x, y):
-  img = font.render(text, True, text_col)
-  screen.blit(img, (x, y))
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y))
+
 
 #function for drawing background
 def draw_bg():
-  scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
-  screen.blit(scaled_bg, (0, 0))
+    scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen.blit(scaled_bg, (0, 0))
+
 
 #function for drawing fighter health bars
 def draw_health_bar(health, x, y):
-  ratio = health / 100
-  pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
-  pygame.draw.rect(screen, RED, (x, y, 400, 30))
-  pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
+    ratio = health / 100
+    pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
+    pygame.draw.rect(screen, RED, (x, y, 400, 30))
+    pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
 
 
 #create two instances of fighters
@@ -91,65 +94,64 @@ player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION
 run = True
 while run:
 
-  clock.tick(FPS)
+    clock.tick(FPS)
 
-  #draw background
-  draw_bg()
+    #draw background
+    draw_bg()
 
-  #show player stats
-  draw_health_bar(player_1.health, 60, 20)
-  draw_health_bar(player_2.health, 730, 20)
-  draw_text("P1: " + str(score[0]), score_font, RED, 60, 60)
-  draw_text("P2: " + str(score[1]), score_font, RED, 730, 60)
+    #show player stats
+    draw_health_bar(player_1.health, 60, 20)
+    draw_health_bar(player_2.health, 730, 20)
+    draw_text("P1: " + str(score[0]), score_font, RED, 60, 60)
+    draw_text("P2: " + str(score[1]), score_font, RED, 730, 60)
 
-  #update countdown
-  if intro_count <= 0:
-    #move fighters
-    player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
-    player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
-  else:
-    #display count timer
-    draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
-    #update count timer
-    if (pygame.time.get_ticks() - last_count_update) >= 1000:
-      intro_count -= 1
-      last_count_update = pygame.time.get_ticks()
+    #update countdown
+    if intro_count <= 0:
+        #move fighters
+        player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
+        player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
+    else:
+        #display count timer
+        draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+        #update count timer
+        if (pygame.time.get_ticks() - last_count_update) >= 1000:
+            intro_count -= 1
+            last_count_update = pygame.time.get_ticks()
 
-  #update fighters
-  player_1.update()
-  player_2.update()
+    #update fighters
+    player_1.update()
+    player_2.update()
 
-  #draw fighters
-  player_1.draw(screen)
-  player_2.draw(screen)
+    #draw fighters
+    player_1.draw(screen)
+    player_2.draw(screen)
 
-  #check for player defeat
-  if round_over == False:
-    if player_1.alive == False:
-      score[1] += 1
-      round_over = True
-      round_over_time = pygame.time.get_ticks()
-    elif player_2.alive == False:
-      score[0] += 1
-      round_over = True
-      round_over_time = pygame.time.get_ticks()
-  else:
-    #display victory image
-    screen.blit(victory_img, (500, 300))
-    if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
-      round_over = False
-      intro_count = 3
-      player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-      player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+    #check for player defeat
+    if round_over == False:
+        if player_1.alive == False:
+            score[1] += 1
+            round_over = True
+            round_over_time = pygame.time.get_ticks()
+        elif player_2.alive == False:
+            score[0] += 1
+            round_over = True
+            round_over_time = pygame.time.get_ticks()
+    else:
+        #display victory image
+        screen.blit(victory_img, (500, 300))
+        if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
+            round_over = False
+            intro_count = 3
+            player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
+            player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
 
-  #event handler
-  for event in pygame.event.get():
-    if event.type == pygame.QUIT:
-      run = False
+    #event handler
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
 
-
-  #update display
-  pygame.display.update()
+    #update display
+    pygame.display.update()
 
 #exit pygame
 pygame.quit()
