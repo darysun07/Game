@@ -6,7 +6,6 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtSql import QSqlTableModel
 
 import sqlite3
 
@@ -321,7 +320,7 @@ class Yrovni(QMainWindow):
         WIZARD_SCALE = 3
         WIZARD_OFFSET = [112, 107]
         WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
-
+# тута музыка и звуки в легком уровне надо еще фоны найти и поменять кнопки... также разное снятие хп сделать (я сделала), остановку вижу молодец) но надо продумать еще полное закрытие фона или вовсе вылет и игры и окошка выбора уровня
         # load music and sounds
         pygame.mixer.music.load("assets/audio/music.mp3")
         pygame.mixer.music.set_volume(0.5)
@@ -371,14 +370,14 @@ class Yrovni(QMainWindow):
 
         # function for drawing fighter health bars
         def draw_health_bar(health, x, y):
-            ratio = health / 100
+            ratio = health / 30
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, RED, (x, y, 400, 30))
             pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
 
         # create two instances of fighters
-        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 30)
+        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
 
         # game loop
         run = True
@@ -435,8 +434,8 @@ class Yrovni(QMainWindow):
                     round_over = False
                     intro_count = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
-                                      sword_fx)
-                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+                                      sword_fx, 30)
+                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
 
             if score[0] == 3 or score[1] == 3:
                 screen.blit(game_over_img, (500, 300))
@@ -539,14 +538,14 @@ class Yrovni(QMainWindow):
 
         # function for drawing fighter health bars
         def draw_health_bar(health, x, y):
-            ratio = health / 100
+            ratio = health / 70
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, RED, (x, y, 400, 30))
             pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
 
         # create two instances of fighters
-        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 70)
+        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 70)
 
         # game loop
         run = True
@@ -603,8 +602,8 @@ class Yrovni(QMainWindow):
                     round_over = False
                     intro_count = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
-                                      sword_fx)
-                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+                                      sword_fx, 70)
+                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 70)
 
             if score[0] == 3 or score[1] == 3:
                 screen.blit(game_over_img, (500, 300))
@@ -707,14 +706,14 @@ class Yrovni(QMainWindow):
 
         # function for drawing fighter health bars
         def draw_health_bar(health, x, y):
-            ratio = health / 100
+            ratio = health / 110
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, RED, (x, y, 400, 30))
             pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
 
         # create two instances of fighters
-        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx)
-        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+        player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 110)
+        player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 110)
 
         # game loop
         run = True
@@ -771,8 +770,8 @@ class Yrovni(QMainWindow):
                     round_over = False
                     intro_count = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
-                                      sword_fx)
-                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx)
+                                      sword_fx, 110)
+                    player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 110)
 
             if score[0] == 3 or score[1] == 3:
                 screen.blit(game_over_img, (500, 300))
@@ -798,68 +797,3 @@ if __name__ == '__main__':
     st = Home()
     st.show()
     sys.exit(app.exec())
-
-
-# SCREEN_WIDTH = 1200
-# SCREEN_HEIGHT = 700
-# size = SCREEN_WIDTH, SCREEN_HEIGHT
-# screen = pygame.display.set_mode(size)
-# bg_im = pygame.image.load("fon2.png").convert_alpha()
-#
-#
-# class Gla:
-#     pygame.init()
-#
-#     def draw_bg(self):
-#         scaled_bg = pygame.transform.scale(bg_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
-#         screen.blit(scaled_bg, (0, 0))
-#
-#     class Hero(pygame.sprite.Sprite):
-#         def __init__(self, x, y):
-#             pygame.sprite.Sprite.__init__(self)
-#             self.hero = pygame.image.load('hero.png').convert_alpha()
-#             self.hero.set_colorkey((255, 255, 255))
-#             self.rect_hero = self.hero.get_rect()
-#             self.rect_hero.x = x
-#             self.rect_hero.y = y
-#
-#         def draw(self, surface):
-#             surface.blit(self.hero, (self.rect_hero.x, self.rect_hero.y))
-#
-#         def move(self):
-#             self.running = False
-#
-#
-#     running = True
-#
-#
-#     vel = 5
-#     jump = False
-#     jumpCount = 0
-#     jumpMax = 15
-#     FPS = 60
-#     clock = pygame.time.Clock()
-#
-#     hero1 = Hero(100, 500)
-#
-#     while running:
-#         draw_bg()
-#         for event in pygame.event.get():
-#             if event.type == pygame.QUIT:
-#                 running = False
-#                 if event.type == pygame.KEYDOWN:
-#                     if not jump and event.key == pygame.K_SPACE:
-#                         jump = True
-#                         jumpCount = jumpMax
-#             keys = pygame.key.get_pressed()
-#             if jump:
-#                 y_h -= jumpCount
-#                 if jumpCount > -jumpMax:
-#                     jumpCount -= 1
-#                 else:
-#                     jump = False
-#         hero1.update()
-#         hero1.draw(screen)
-#         clock.tick(FPS)
-#         pygame.display.flip()
-#     pygame.quit()

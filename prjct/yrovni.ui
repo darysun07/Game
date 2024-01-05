@@ -35,7 +35,7 @@ font: 25pt &quot;MV Boli&quot;;</string>
      <string>Выбор уровня</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="slzn_button">
+   <widget class="QPushButton" name="srdn_button">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -65,7 +65,7 @@ background-color: rgba(255, 85, 0, 60);
      <string>Средний</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="srdn_button">
+   <widget class="QPushButton" name="lgk_button">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -95,7 +95,7 @@ background-color: rgba(255, 85, 0, 60);
      <string>Легкий</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="lgk_button">
+   <widget class="QPushButton" name="slzn_button">
     <property name="geometry">
      <rect>
       <x>330</x>

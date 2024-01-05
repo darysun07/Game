@@ -2,7 +2,7 @@ import pygame
 
 
 class Player:
-    def __init__(self, player, x, y, flip, data, sprite_sheet, animation_steps, sound):
+    def __init__(self, player, x, y, flip, data, sprite_sheet, animation_steps, sound, health):
         self.player = player
         self.size = data[0]
         self.image_scale = data[1]
@@ -22,7 +22,7 @@ class Player:
         self.attack_cooldown = 0
         self.attack_sound = sound
         self.hit = False
-        self.health = 100
+        self.health = health
         self.alive = True
 
     def load_images(self, sprite_sheet, animation_steps):
