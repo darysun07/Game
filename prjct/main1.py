@@ -42,7 +42,7 @@ class Home(QMainWindow):
         self.pravila.clicked.connect(self.pravila_window_opn)
 
     def glav_window_opn(self):
-        self.glav_window = Fon()
+        self.glav_window = Gla()
         self.glav_window.show()
 
     def signup_window_opn(self):
@@ -182,68 +182,66 @@ if __name__ == '__main__':
     sys.exit(app.exec())
 
 
-pygame.init()
+class Gla():
+    pygame.init()
+    SCREEN_WIDTH = 1200
+    SCREEN_HEIGHT = 700
+    size = SCREEN_WIDTH, SCREEN_HEIGHT
+    screen = pygame.display.set_mode(size)
+    bg_im = pygame.image.load("fon2.png").convert_alpha()
 
 
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 700
-size = SCREEN_WIDTH, SCREEN_HEIGHT
-screen = pygame.display.set_mode(size)
-bg_im = pygame.image.load("fon2.png").convert_alpha()
+    def draw_bg():
+        scaled_bg = pygame.transform.scale(bg_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen.blit(scaled_bg, (0, 0))
 
 
-def draw_bg():
-    scaled_bg = pygame.transform.scale(bg_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.blit(scaled_bg, (0, 0))
+    class Hero(pygame.sprite.Sprite):
+        def __init__(self, x, y):
+            pygame.sprite.Sprite.__init__(self)
+            self.hero = pygame.image.load('hero.png').convert_alpha()
+            self.hero.set_colorkey((255, 255, 255))
+            self.rect_hero = self.hero.get_rect()
+            self.rect_hero.x = x
+            self.rect_hero.y = y
+
+        def draw(self, surface):
+            surface.blit(self.hero, (self.rect_hero.x, self.rect_hero.y))
+
+        def move(self):
+            self.running = False
 
 
-class Hero(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        pygame.sprite.Sprite.__init__(self)
-        self.hero = pygame.image.load('hero.png').convert_alpha()
-        self.hero.set_colorkey((255, 255, 255))
-        self.rect_hero = self.hero.get_rect()
-        self.rect_hero.x = x
-        self.rect_hero.y = y
-
-    def draw(self, surface):
-        surface.blit(self.hero, (self.rect_hero.x, self.rect_hero.y))
-
-    def move(self):
-        self.running = False
+    running = True
 
 
+    vel = 5
+    jump = False
+    jumpCount = 0
+    jumpMax = 15
+    FPS = 60
+    clock = pygame.time.Clock()
 
-running = True
+    hero1 = Hero(100, 500)
 
-
-vel = 5
-jump = False
-jumpCount = 0
-jumpMax = 15
-FPS = 60
-clock = pygame.time.Clock()
-
-hero1 = Hero(100, 500)
-
-while running:
-    draw_bg()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-            if event.type == pygame.KEYDOWN:
-                if not jump and event.key == pygame.K_SPACE:
-                    jump = True
-                    jumpCount = jumpMax
-        keys = pygame.key.get_pressed()
-        if jump:
-            y_h -= jumpCount
-            if jumpCount > -jumpMax:
-                jumpCount -= 1
-            else:
-                jump = False
-    hero1.update()
-    hero1.draw(screen)
-    clock.tick(FPS)
-    pygame.display.flip()
-pygame.quit()
+    while running:
+        draw_bg()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                if event.type == pygame.KEYDOWN:
+                    if not jump and event.key == pygame.K_SPACE:
+                        jump = True
+                        jumpCount = jumpMax
+            keys = pygame.key.get_pressed()
+            if jump:
+                y_h -= jumpCount
+                if jumpCount > -jumpMax:
+                    jumpCount -= 1
+                else:
+                    jump = False
+        hero1.update()
+        hero1.draw(screen)
+        clock.tick(FPS)
+        pygame.display.flip()
+    pygame.quit()
