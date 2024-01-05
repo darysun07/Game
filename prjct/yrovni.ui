@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>YROVEN</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(fon2.png);
+background-size: cover;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>10</y>
+      <width>311</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 170, 127);
+font: 25pt &quot;MV Boli&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Выбор уровня</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="slzn_button">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>260</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 170, 127);
+background-color:rgb(255, 85, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(255, 170, 127);
+border-radius: 7px;
+width: 200 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgba(255, 85, 0, 100);
+}
+QPushButton:pressed {
+background-color: rgba(255, 85, 0, 60);
+}</string>
+    </property>
+    <property name="text">
+     <string>Средний</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="srdn_button">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>180</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 170, 127);
+background-color:rgb(255, 85, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(255, 170, 127);
+border-radius: 7px;
+width: 200 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgba(255, 85, 0, 100);
+}
+QPushButton:pressed {
+background-color: rgba(255, 85, 0, 60);
+}</string>
+    </property>
+    <property name="text">
+     <string>Легкий</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lgk_button">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>340</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 170, 127);
+background-color:rgb(255, 85, 0);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border: 1px solid rgb(255, 170, 127);
+border-radius: 7px;
+width: 200 px;
+height: 45px;
+}
+QPushButton:hover {
+background-color: rgba(255, 85, 0, 100);
+}
+QPushButton:pressed {
+background-color: rgba(255, 85, 0, 60);
+}</string>
+    </property>
+    <property name="text">
+     <string>Сложный</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
