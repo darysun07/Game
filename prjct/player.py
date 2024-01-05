@@ -86,12 +86,12 @@ class Player:
                     self.vel_y = -30
                     self.jump = True
                 #attack
-                if key[pygame.K_KP1] or key[pygame.K_KP2]:
+                if key[pygame.K_o] or key[pygame.K_p]:
                     self.attack(target)
                     #determine which attack type was used
-                    if key[pygame.K_KP1]:
+                    if key[pygame.K_o]:
                         self.attack_type = 1
-                    if key[pygame.K_KP2]:
+                    if key[pygame.K_p]:
                         self.attack_type = 2
 
 

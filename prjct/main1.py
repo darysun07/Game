@@ -320,9 +320,9 @@ class Yrovni(QMainWindow):
         WIZARD_SCALE = 3
         WIZARD_OFFSET = [112, 107]
         WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
-# тута музыка и звуки в легком уровне надо еще фоны найти и поменять кнопки... также разное снятие хп сделать (я сделала), остановку вижу молодец) но надо продумать еще полное закрытие фона или вовсе вылет и игры и окошка выбора уровня
+# тута музыка и звуки в легком уровне  сделаkfостановку вижу молодец) но надо продумать еще полное закрытие фона или вовсе вылет и игры и окошка выбора уровня
         # load music and sounds
-        pygame.mixer.music.load("assets/audio/music.mp3")
+        pygame.mixer.music.load("assets/audio/music1.mp3")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1, 0.0, 5000)
         sword_fx = pygame.mixer.Sound("assets/audio/sword.wav")
@@ -490,7 +490,7 @@ class Yrovni(QMainWindow):
         WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
         # load music and sounds
-        pygame.mixer.music.load("assets/audio/music.mp3")
+        pygame.mixer.music.load("assets/audio/music2.mp3")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1, 0.0, 5000)
         sword_fx = pygame.mixer.Sound("assets/audio/sword.wav")
@@ -499,7 +499,7 @@ class Yrovni(QMainWindow):
         magic_fx.set_volume(0.75)
 
         # load background image
-        bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
+        bg_image = pygame.image.load("assets/images/background/fon3.jpg").convert_alpha()
 
         start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
 
@@ -658,7 +658,7 @@ class Yrovni(QMainWindow):
         WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
         # load music and sounds
-        pygame.mixer.music.load("assets/audio/music.mp3")
+        pygame.mixer.music.load("assets/audio/music3.mp3")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1, 0.0, 5000)
         sword_fx = pygame.mixer.Sound("assets/audio/sword.wav")
@@ -667,7 +667,7 @@ class Yrovni(QMainWindow):
         magic_fx.set_volume(0.75)
 
         # load background image
-        bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
+        bg_image = pygame.image.load("assets/images/background/fon4.jpg").convert_alpha()
 
         start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
 
