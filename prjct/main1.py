@@ -181,20 +181,19 @@ if __name__ == '__main__':
     st.show()
     sys.exit(app.exec())
 
-
-class Gla():
-    pygame.init()
-    SCREEN_WIDTH = 1200
-    SCREEN_HEIGHT = 700
-    size = SCREEN_WIDTH, SCREEN_HEIGHT
-    screen = pygame.display.set_mode(size)
-    bg_im = pygame.image.load("fon2.png").convert_alpha()
+pygame.init()
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 700
+size = SCREEN_WIDTH, SCREEN_HEIGHT
+screen = pygame.display.set_mode(size)
+bg_im = pygame.image.load("fon2.png").convert_alpha()
 
 
-    def draw_bg():
+class Gla:
+
+    def draw_bg(self):
         scaled_bg = pygame.transform.scale(bg_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
         screen.blit(scaled_bg, (0, 0))
-
 
     class Hero(pygame.sprite.Sprite):
         def __init__(self, x, y):
