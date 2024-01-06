@@ -3,7 +3,7 @@ import pygame
 import sqlite3
 from pygame import mixer
 from player import Player
-from PyQt5 import uic, QtWidgets
+from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QMessageBox
 
@@ -311,7 +311,7 @@ class Yrovni(QMainWindow):
         # load vicory image
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
-        game_over_img = pygame.image.load("GameOver.png").convert_alpha()
+        game_over_img = pygame.image.load("assets/images/background/fon3.jpg").convert_alpha()
 
         # define number of steps in each animation
 
