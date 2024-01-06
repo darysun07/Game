@@ -130,10 +130,6 @@ class Pravila(QMainWindow):
         super().__init__()
         uic.loadUi('pravila.ui', self)
 
-class GmOvr(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('gameovr.ui', self)
 
 class Yrovni(QMainWindow):
     def __init__(self):
