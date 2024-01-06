@@ -319,7 +319,7 @@ class Yrovni(QMainWindow):
         # load vicory image
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
-        game_over_img = pygame.image.load("assets/images/background/fon3.jpg").convert_alpha()
+        game_over_img = pygame.image.load("assets/images/background/fon5.jpg").convert_alpha()
 
         # define number of steps in each animation
 
@@ -404,8 +404,9 @@ class Yrovni(QMainWindow):
                                       sword_fx, 70)
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 70)
 
-            if score[0] == 3 or score[1] == 3:
-                screen.blit(game_over_img, (500, 300))
+            if score[0] == 1 or score[1] == 1:
+                game_over_img = pygame.transform.scale(game_over_img, (SCREEN_WIDTH, SCREEN_HEIGHT))
+                screen.blit(game_over_img, (0, 0))
                 round_over = True
 
             # event handler

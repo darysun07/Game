@@ -14,7 +14,7 @@
    <string>SIGNUP</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(fon.jpg);
+   <string notr="true">background-image: url(assets/images/background/fon.jpg);
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
