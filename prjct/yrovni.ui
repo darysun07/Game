@@ -14,7 +14,7 @@
    <string>YROVEN</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(fon2.png);
+   <string notr="true">background-image: url(assets/images/background/fon2.png);
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
