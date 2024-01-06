@@ -14,6 +14,7 @@ SCREEN_HEIGHT = 700
 RED = (255, 15, 192)
 GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 
 FPS = 60
 
@@ -298,7 +299,6 @@ class Yrovni(QMainWindow):
         last_count_update = pygame.time.get_ticks()
         score = [0, 0]  # player scores. [P1, P2]
         round_over = False
-        ROUND_OVER_COOLDOWN = 2000
 
         # define fighter variables
 
@@ -362,8 +362,8 @@ class Yrovni(QMainWindow):
             # show player stats
             draw_health_bar(player_1.health, 60, 20)
             draw_health_bar(player_2.health, 730, 20)
-            draw_text("P1: " + str(score[0]), score_font, RED, 60, 60)
-            draw_text("P2: " + str(score[1]), score_font, RED, 730, 60)
+            draw_text("P1: " + str(score[0]), score_font, BLACK, 60, 60)
+            draw_text("P2: " + str(score[1]), score_font, BLACK, 730, 60)
 
             # update countdown
             if intro_count <= 0:
@@ -372,7 +372,7 @@ class Yrovni(QMainWindow):
                 player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
             else:
                 # display count timer
-                draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+                draw_text(str(intro_count), count_font, BLACK, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
                 # update count timer
                 if (pygame.time.get_ticks() - last_count_update) >= 1000:
                     intro_count -= 1
