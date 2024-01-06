@@ -102,7 +102,6 @@ class Signup(QMainWindow):
             self.close()
 
 
-
 class Pravila(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -166,8 +165,6 @@ class Yrovni(QMainWindow):
         # load background image
         bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
 
-        start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
-
         # load spritesheets
         warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
         wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
@@ -181,15 +178,10 @@ class Yrovni(QMainWindow):
         WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
         WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
-        FLAG = False
 
         # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
-
-        def start_screen():
-            scaled_st = pygame.transform.scale(start_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
-            screen.blit(scaled_st, (0, 0))
 
         # function for drawing text
         def draw_text(text, font, text_col, x, y):
@@ -217,8 +209,6 @@ class Yrovni(QMainWindow):
         while run:
 
             clock.tick(FPS)
-
-            start_screen()
 
             # draw background
             draw_bg()
@@ -334,8 +324,6 @@ class Yrovni(QMainWindow):
         # load background image
         bg_image = pygame.image.load("assets/images/background/fon3.jpg").convert_alpha()
 
-        start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
-
         # load spritesheets
         warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
         wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
@@ -354,10 +342,6 @@ class Yrovni(QMainWindow):
         # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
-
-        def start_screen():
-            scaled_st = pygame.transform.scale(start_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
-            screen.blit(scaled_st, (0, 0))
 
         # function for drawing text
         def draw_text(text, font, text_col, x, y):
@@ -385,8 +369,6 @@ class Yrovni(QMainWindow):
         while run:
 
             clock.tick(FPS)
-
-            start_screen()
 
             # draw background
             draw_bg()
@@ -502,8 +484,6 @@ class Yrovni(QMainWindow):
         # load background image
         bg_image = pygame.image.load("assets/images/background/fon4.jpg").convert_alpha()
 
-        start_im = pygame.image.load("assets/images/background/fon.jpg").convert_alpha()
-
         # load spritesheets
         warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
         wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
@@ -517,15 +497,9 @@ class Yrovni(QMainWindow):
         WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
         WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
-        FLAG = False
-
         # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
-
-        def start_screen():
-            scaled_st = pygame.transform.scale(start_im, (SCREEN_WIDTH, SCREEN_HEIGHT))
-            screen.blit(scaled_st, (0, 0))
 
         # function for drawing text
         def draw_text(text, font, text_col, x, y):
@@ -553,8 +527,6 @@ class Yrovni(QMainWindow):
         while run:
 
             clock.tick(FPS)
-
-            start_screen()
 
             # draw background
             draw_bg()
@@ -620,9 +592,6 @@ class Yrovni(QMainWindow):
 
         # exit pygame
         pygame.quit()
-
-
-
 
 
 if __name__ == '__main__':
