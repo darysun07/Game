@@ -130,10 +130,6 @@ class Pravila(QMainWindow):
         super().__init__()
         uic.loadUi('pravila.ui', self)
 
-class GmOvr(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('gameovr.ui', self)
 
 class Yrovni(QMainWindow):
     def __init__(self):
@@ -143,49 +139,38 @@ class Yrovni(QMainWindow):
         self.srdn_button.clicked.connect(self.srd_glav_window_opn)
         self.slzn_button.clicked.connect(self.slz_glav_window_opn)
 
-    def lgk_glav_window_opn(self):
-        mixer.init()
-        pygame.init()
+    mixer.init()
+    pygame.init()
 
+    # set framerate
+    clock = pygame.time.Clock()
+
+    # define game variables
+    intro_count = 3
+    last_count_update = pygame.time.get_ticks()
+    score = [0, 0]  # player scores. [P1, P2]
+    round_over = False
+
+    def lgk_glav_window_opn(self):
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Wild West")
-
-        # set framerate
-        clock = pygame.time.Clock()
-
-        # define game variables
-        intro_count = 3
-        last_count_update = pygame.time.get_ticks()
-        score = [0, 0]  # player scores. [P1, P2]
-        round_over = False
-
 # тута музыка и звуки в легком уровне  сделать (остановку вижу молодец) но надо продумать еще полное закрытие фона или вовсе вылет и игры и окошка выбора уровня
         # load music and sounds
         pygame.mixer.music.load("assets/audio/music1.mp3")
-        pygame.mixer.music.set_volume(0.5)
-        pygame.mixer.music.play(-1, 0.0, 5000)
-        sword_fx = pygame.mixer.Sound("assets/audio/sword.wav")
-        sword_fx.set_volume(0.5)
-        magic_fx = pygame.mixer.Sound("assets/audio/magic.wav")
-        magic_fx.set_volume(0.75)
 
         # load background image
         bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
-
-        # load spritesheets
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(-1, 0.0, 5000)
+        # load spritesheet
         warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
         wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
-
-        # load vicory image
+        # function for drawing text
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
         game_over_img = pygame.image.load("GameOver.png").convert_alpha()
-
-        # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
-
-        # function for drawing text
         def draw_text(text, font, text_col, x, y):
             img = font.render(text, True, text_col)
             screen.blit(img, (x, y))
@@ -263,12 +248,8 @@ class Yrovni(QMainWindow):
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
 
             if score[0] == 3 or score[1] == 3:
-                # screen.blit(game_over_img, (500, 300))
-                run = False
-                pygame.quit()
-
-                gmovr_window_opn = GmOvr()
-                gmovr_window_opn.show()
+                screen.blit(game_over_img, (500, 300))
+                round_over = True
 
             # event handler
             for event in pygame.event.get():
