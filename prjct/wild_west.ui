@@ -18,7 +18,6 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(fon.jpg);
-background-size: cover;
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
