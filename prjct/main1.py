@@ -179,7 +179,7 @@ class Yrovni(QMainWindow):
         # load vicory image
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
-        game_over_img = pygame.image.load("GameOver.png").convert_alpha()
+        game_over_img = pygame.image.load("assets/images/background/fon6.jpg").convert_alpha()
 
         # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
@@ -464,7 +464,7 @@ class Yrovni(QMainWindow):
         # load vicory image
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
-        game_over_img = pygame.image.load("GameOver.png").convert_alpha()
+        game_over_img = pygame.image.load("assets/images/background/fon7.jpg").convert_alpha()
 
         # define font
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
