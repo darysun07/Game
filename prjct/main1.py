@@ -1,12 +1,35 @@
 import sys
 import pygame
+import sqlite3
 from pygame import mixer
 from player import Player
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QMessageBox
 
-import sqlite3
+
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 700
+
+RED = (255, 15, 192)
+GREEN = (0, 255, 0)
+WHITE = (255, 255, 255)
+
+FPS = 60
+
+ROUND_OVER_COOLDOWN = 2000
+
+WARRIOR_SIZE = 162
+WARRIOR_SCALE = 4
+WARRIOR_OFFSET = [72, 56]
+WARRIOR_DATA = [WARRIOR_SIZE, WARRIOR_SCALE, WARRIOR_OFFSET]
+WIZARD_SIZE = 250
+WIZARD_SCALE = 3
+WIZARD_OFFSET = [112, 107]
+WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
+
+WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
+WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
 
 class LoginDb:
@@ -120,38 +143,18 @@ class Yrovni(QMainWindow):
         mixer.init()
         pygame.init()
 
-        # create game window
-        SCREEN_WIDTH = 1200
-        SCREEN_HEIGHT = 700
-
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Wild West")
 
         # set framerate
         clock = pygame.time.Clock()
-        FPS = 60
-
-        # define colours
-        RED = (255, 15, 192)
-        GREEN = (0, 255, 0)
-        WHITE = (255, 255, 255)
 
         # define game variables
         intro_count = 3
         last_count_update = pygame.time.get_ticks()
         score = [0, 0]  # player scores. [P1, P2]
         round_over = False
-        ROUND_OVER_COOLDOWN = 2000
 
-        # define fighter variables
-        WARRIOR_SIZE = 162
-        WARRIOR_SCALE = 4
-        WARRIOR_OFFSET = [72, 56]
-        WARRIOR_DATA = [WARRIOR_SIZE, WARRIOR_SCALE, WARRIOR_OFFSET]
-        WIZARD_SIZE = 250
-        WIZARD_SCALE = 3
-        WIZARD_OFFSET = [112, 107]
-        WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 # тута музыка и звуки в легком уровне  сделаkfостановку вижу молодец) но надо продумать еще полное закрытие фона или вовсе вылет и игры и окошка выбора уровня
         # load music and sounds
         pygame.mixer.music.load("assets/audio/music1.mp3")
@@ -174,13 +177,8 @@ class Yrovni(QMainWindow):
 
         game_over_img = pygame.image.load("GameOver.png").convert_alpha()
 
-        # define number of steps in each animation
-        WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
-        WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
-
-
         # define font
-        count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
+        count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
 
         # function for drawing text
@@ -279,21 +277,11 @@ class Yrovni(QMainWindow):
         mixer.init()
         pygame.init()
 
-        # create game window
-        SCREEN_WIDTH = 1200
-        SCREEN_HEIGHT = 700
-
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Wild West")
 
         # set framerate
         clock = pygame.time.Clock()
-        FPS = 60
-
-        # define colours
-        RED = (255, 15, 192)
-        GREEN = (0, 255, 0)
-        WHITE = (255, 255, 255)
 
         # define game variables
         intro_count = 3
@@ -303,14 +291,6 @@ class Yrovni(QMainWindow):
         ROUND_OVER_COOLDOWN = 2000
 
         # define fighter variables
-        WARRIOR_SIZE = 162
-        WARRIOR_SCALE = 4
-        WARRIOR_OFFSET = [72, 56]
-        WARRIOR_DATA = [WARRIOR_SIZE, WARRIOR_SCALE, WARRIOR_OFFSET]
-        WIZARD_SIZE = 250
-        WIZARD_SCALE = 3
-        WIZARD_OFFSET = [112, 107]
-        WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
         # load music and sounds
         pygame.mixer.music.load("assets/audio/music2.mp3")
@@ -334,13 +314,9 @@ class Yrovni(QMainWindow):
         game_over_img = pygame.image.load("GameOver.png").convert_alpha()
 
         # define number of steps in each animation
-        WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
-        WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
-
-        FLAG = False
 
         # define font
-        count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
+        count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
 
         # function for drawing text
@@ -440,37 +416,18 @@ class Yrovni(QMainWindow):
         pygame.init()
 
         # create game window
-        SCREEN_WIDTH = 1200
-        SCREEN_HEIGHT = 700
 
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Wild West")
 
         # set framerate
         clock = pygame.time.Clock()
-        FPS = 60
-
-        # define colours
-        RED = (255, 15, 192)
-        GREEN = (0, 255, 0)
-        WHITE = (255, 255, 255)
 
         # define game variables
         intro_count = 3
         last_count_update = pygame.time.get_ticks()
         score = [0, 0]  # player scores. [P1, P2]
         round_over = False
-        ROUND_OVER_COOLDOWN = 2000
-
-        # define fighter variables
-        WARRIOR_SIZE = 162
-        WARRIOR_SCALE = 4
-        WARRIOR_OFFSET = [72, 56]
-        WARRIOR_DATA = [WARRIOR_SIZE, WARRIOR_SCALE, WARRIOR_OFFSET]
-        WIZARD_SIZE = 250
-        WIZARD_SCALE = 3
-        WIZARD_OFFSET = [112, 107]
-        WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
         # load music and sounds
         pygame.mixer.music.load("assets/audio/music3.mp3")
@@ -493,12 +450,8 @@ class Yrovni(QMainWindow):
 
         game_over_img = pygame.image.load("GameOver.png").convert_alpha()
 
-        # define number of steps in each animation
-        WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
-        WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
-
         # define font
-        count_font = pygame.font.Font("assets/fonts/turok.ttf", 80)
+        count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
 
         # function for drawing text
