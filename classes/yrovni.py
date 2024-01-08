@@ -1,11 +1,10 @@
-import sys
 import pygame
-import sqlite3
 from pygame import mixer
-from player import Player
+
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMainWindow
+
+from classes.player import Player
 
 
 SCREEN_WIDTH = 1200
@@ -34,109 +33,10 @@ WARRIOR_ANIMATION_STEPS = [10, 8, 1, 7, 7, 3, 7]
 WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
 
-class LoginDb:
-    def __init__(self, dbname):
-        self.dbname = dbname
-        self.conn = sqlite3.connect(dbname)
-
-    def is_table(self, table_name):
-        query = "SELECT name from sqlite_master WHERE type='table' AND name='{}';".format(table_name)
-        cursor = self.conn.execute(query)
-        result = cursor.fetchone()
-        if result is None:
-            return False
-        else:
-            return True
-
-
-class Home(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('wild_west.ui', self)
-
-        self.loginDb = LoginDb('login.db')
-        if self.loginDb.is_table('USERS'):
-            pass
-        else:
-            self.loginDb.conn.execute("CREATE TABLE USERS(NAME TEXT NOT NULL,PASSWORD TEXT)")
-            self.loginDb.conn.execute("INSERT INTO USERS VALUES(?, ?)",
-                                            ('admin', 'admin'))
-            self.loginDb.conn.commit()
-        self.enter_btn.clicked.connect(self.loginCheck)
-        self.signup_btn.clicked.connect(self.signup_window_opn)
-        self.pravila.clicked.connect(self.pravila_window_opn)
-
-    def yrvn_window_opn(self):
-        self.yrovni_window_opn = Yrovni()
-        self.yrovni_window_opn.show()
-
-    def signup_window_opn(self):
-        self.signup_window_opn = Signup()
-        self.signup_window_opn.show()
-        self.close()
-
-    def pravila_window_opn(self):
-        self.pravila_window_opn = Pravila()
-        self.pravila_window_opn.show()
-        self.close()
-
-    def loginCheck(self):
-        name = self.name_check.text()
-        password = self.password_check.text()
-        if (not name) or (not password):
-            err_msg = QMessageBox.information(self, 'Внимание!', 'Не все поля заполнены.')
-            return err_msg
-
-        rslt = self.loginDb.conn.execute("SELECT * FROM USERS WHERE NAME = ? AND PASSWORD = ?", (name, password))
-        if len(rslt.fetchall()):
-            self.close()
-            self.yrvn_window_opn()
-            self.loginDb.conn.close()
-        else:
-            err_msg = QMessageBox.information(self, 'Внимание!', 'Неправильное имя пользователя или пароль.')
-            return err_msg
-
-
-class Signup(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('login.ui', self)
-        self.reg_btn.clicked.connect(self.insertData)
-
-        self.loginDb = LoginDb('login.db')
-
-    def insertData(self):
-        name = self.name_save.text()
-        password = self.password_save.text()
-
-        if (not name) or (not password):
-            err_msg = QMessageBox.information(self, 'Внимание!', 'Не все поля заполнены.')
-            return err_msg
-
-        rslt = self.loginDb.conn.execute("SELECT * FROM USERS WHERE NAME = ?", (name,))
-
-        if rslt.fetchall():
-            err_msg = QMessageBox.information(self, 'Внимание!', 'Пользоватеть с таким именем уже зарегистрирован.')
-            return err_msg
-
-        else:
-            self.loginDb.conn.execute("INSERT INTO USERS VALUES(?, ?)", (name, password))
-            self.loginDb.conn.commit()
-            self.home_window_opn = Home()
-            self.home_window_opn.show()
-            self.close()
-
-
-class Pravila(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('pravila.ui', self)
-
-
 class Yrovni(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('yrovni.ui', self)
+        uic.loadUi('ui/yrovni.ui', self)
         self.lgk_button.clicked.connect(self.lgk_glav_window_opn)
         self.srdn_button.clicked.connect(self.srd_glav_window_opn)
         self.slzn_button.clicked.connect(self.slz_glav_window_opn)
@@ -464,10 +364,3 @@ class Yrovni(QMainWindow):
                     run = False
             pygame.display.update()
         pygame.quit()
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    st = Home()
-    st.show()
-    sys.exit(app.exec())
