@@ -94,6 +94,9 @@ ___
 - *Окно авторизации*
 ![img_1.png](assets/images/readme/img_1.png)
 
+- *Окно с правилами игры*
+![img_6.png](assets/images/readme/img_6.png)
+
 - *Окно выбора уровня*
 ![img_2.png](assets/images/readme/img_2.png)
 
