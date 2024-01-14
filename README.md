@@ -73,7 +73,7 @@ Wild West - это игра файтинг в стиле дикого запад
 - *Окно выбора уровня*
 ![img_2.png](assets/images/readme/img_2.png)
 
-- *Окно среднего уровня*
+- *Окно легкого уровня*
 ![img_4.png](assets/images/readme/img_4.png)
 
 - *Окно среднего уровня*
