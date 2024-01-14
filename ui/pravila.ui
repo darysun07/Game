@@ -14,7 +14,7 @@
    <string>pravila</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(assets/images/background/fon9.jpg);
+   <string notr="true">background-image: url(assets/images/background/fon8.jpg);
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
