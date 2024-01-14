@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 from classes.player import Player
 
-
+#константы
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 700
 
@@ -41,6 +41,7 @@ class Yrovni(QMainWindow):
         self.srdn_button.clicked.connect(self.srd_glav_window_opn)
         self.slzn_button.clicked.connect(self.slz_glav_window_opn)
 
+    #легкий уровень
     def lgk_glav_window_opn(self):
         mixer.init()
         pygame.init()
