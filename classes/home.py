@@ -37,7 +37,6 @@ class Home(QMainWindow):
     def pravila_window_opn(self):
         self.pravila_window_opn = Pravila()
         self.pravila_window_opn.show()
-        self.close()
 
     def loginCheck(self):
         name = self.name_check.text()
