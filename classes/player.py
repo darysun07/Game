@@ -40,7 +40,7 @@ class Player:
         return animation_list
 
     # движение
-    def move(self, screen_width, screen_height, target, round_over):
+    def move(self, screen_width, screen_height, screen, target, round_over):
         dx = 0
         dy = 0
         self.running = False
