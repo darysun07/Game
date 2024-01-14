@@ -41,7 +41,7 @@ class Yrovni(QMainWindow):
         self.srdn_button.clicked.connect(self.srd_glav_window_opn)
         self.slzn_button.clicked.connect(self.slz_glav_window_opn)
 
-    #легкий уровень
+    # легкий уровень
     def lgk_glav_window_opn(self):
         mixer.init()
         pygame.init()
@@ -53,7 +53,7 @@ class Yrovni(QMainWindow):
 
         intro_count = 3
         last_count_update = pygame.time.get_ticks()
-        score = [0, 0]
+        score = [0, 0] # победы героев
         round_over = False
 
         pygame.mixer.music.load("assets/audio/music1.mp3")
@@ -150,6 +150,7 @@ class Yrovni(QMainWindow):
             pygame.display.update()
         pygame.quit()
 
+    # средний уровень
     def srd_glav_window_opn(self):
         mixer.init()
         pygame.init()
@@ -258,6 +259,7 @@ class Yrovni(QMainWindow):
             pygame.display.update()
         pygame.quit()
 
+    # сложный уровень
     def slz_glav_window_opn(self):
         mixer.init()
         pygame.init()

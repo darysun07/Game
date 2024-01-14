@@ -39,6 +39,7 @@ class Player:
             animation_list.append(temp_img_list)
         return animation_list
 
+    # движение
     def move(self, screen_width, screen_height, target, round_over):
         dx = 0
         dy = 0
@@ -48,6 +49,7 @@ class Player:
         key = pygame.key.get_pressed()
 
         if self.attacking == False and self.alive == True and round_over == False:
+            # левый герой
             if self.player == 1:
                 if key[pygame.K_a]:
                     dx = -SPEED
@@ -64,7 +66,7 @@ class Player:
                         self.attack_type = 1
                     if key[pygame.K_t]:
                         self.attack_type = 2
-
+            # правый герой
             if self.player == 2:
                 if key[pygame.K_LEFT]:
                     dx = -SPEED
