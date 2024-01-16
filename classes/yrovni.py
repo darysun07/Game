@@ -51,7 +51,7 @@ class Yrovni(QMainWindow):
 
         clock = pygame.time.Clock()
 
-        intro_count = 3
+        count_intro = 3
         last_count_update = pygame.time.get_ticks()
         score = [0, 0] # победы героев
         round_over = False
@@ -85,10 +85,10 @@ class Yrovni(QMainWindow):
             screen.blit(scaled_bg, (0, 0))
 
         def draw_health_bar(health, x, y):
-            ratio = health / 30
+            value = health / 30
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, PINK, (x, y, 400, 30))
-            pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
+            pygame.draw.rect(screen, GREEN, (x, y, 400 * value, 30))
 
         player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 30)
         player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
@@ -105,13 +105,13 @@ class Yrovni(QMainWindow):
             draw_text("P1: " + str(score[0]), score_font, PINK, 60, 60)
             draw_text("P2: " + str(score[1]), score_font, PINK, 730, 60)
 
-            if intro_count <= 0:
+            if count_intro <= 0:
                 player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
                 player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
             else:
-                draw_text(str(intro_count), count_font, PINK, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+                draw_text(str(count_intro), count_font, PINK, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
                 if (pygame.time.get_ticks() - last_count_update) >= 1000:
-                    intro_count -= 1
+                    count_intro -= 1
                     last_count_update = pygame.time.get_ticks()
 
             player_1.update()
@@ -133,7 +133,7 @@ class Yrovni(QMainWindow):
                 screen.blit(victory_img, (500, 300))
                 if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
                     round_over = False
-                    intro_count = 3
+                    count_intro = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
                                       sword_fx, 30)
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
@@ -160,7 +160,7 @@ class Yrovni(QMainWindow):
 
         clock = pygame.time.Clock()
 
-        intro_count = 3
+        count_intro = 3
         last_count_update = pygame.time.get_ticks()
         score = [0, 0]
         round_over = False
@@ -194,10 +194,10 @@ class Yrovni(QMainWindow):
             screen.blit(scaled_bg, (0, 0))
 
         def draw_health_bar(health, x, y):
-            ratio = health / 70
+            value = health / 70
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, PINK, (x, y, 400, 30))
-            pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
+            pygame.draw.rect(screen, GREEN, (x, y, 400 * value, 30))
 
         player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 70)
         player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 70)
@@ -214,13 +214,13 @@ class Yrovni(QMainWindow):
             draw_text("P1: " + str(score[0]), score_font, BLUE, 60, 60)
             draw_text("P2: " + str(score[1]), score_font, BLUE, 730, 60)
 
-            if intro_count <= 0:
+            if count_intro <= 0:
                 player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
                 player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
             else:
-                draw_text(str(intro_count), count_font, BLUE, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+                draw_text(str(count_intro), count_font, BLUE, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
                 if (pygame.time.get_ticks() - last_count_update) >= 1000:
-                    intro_count -= 1
+                    count_intro -= 1
                     last_count_update = pygame.time.get_ticks()
 
             player_1.update()
@@ -242,7 +242,7 @@ class Yrovni(QMainWindow):
                 screen.blit(victory_img, (500, 300))
                 if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
                     round_over = False
-                    intro_count = 3
+                    count_intro = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
                                       sword_fx, 70)
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 70)
@@ -269,7 +269,7 @@ class Yrovni(QMainWindow):
 
         clock = pygame.time.Clock()
 
-        intro_count = 3
+        count_intro = 3
         last_count_update = pygame.time.get_ticks()
         score = [0, 0]
         round_over = False
@@ -303,10 +303,10 @@ class Yrovni(QMainWindow):
             screen.blit(scaled_bg, (0, 0))
 
         def draw_health_bar(health, x, y):
-            ratio = health / 110
+            value = health / 110
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, PINK, (x, y, 400, 30))
-            pygame.draw.rect(screen, GREEN, (x, y, 400 * ratio, 30))
+            pygame.draw.rect(screen, GREEN, (x, y, 400 * value, 30))
 
         player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 110)
         player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 110)
@@ -323,13 +323,13 @@ class Yrovni(QMainWindow):
             draw_text("P1: " + str(score[0]), score_font, RED, 60, 60)
             draw_text("P2: " + str(score[1]), score_font, RED, 730, 60)
 
-            if intro_count <= 0:
+            if count_intro <= 0:
                 player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
                 player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
             else:
-                draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+                draw_text(str(count_intro), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
                 if (pygame.time.get_ticks() - last_count_update) >= 1000:
-                    intro_count -= 1
+                    count_intro -= 1
                     last_count_update = pygame.time.get_ticks()
 
             player_1.update()
@@ -351,7 +351,7 @@ class Yrovni(QMainWindow):
                 screen.blit(victory_img, (500, 300))
                 if pygame.time.get_ticks() - round_over_time > ROUND_OVER_COOLDOWN:
                     round_over = False
-                    intro_count = 3
+                    count_intro = 3
                     player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS,
                                       sword_fx, 110)
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 110)

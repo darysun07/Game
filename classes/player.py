@@ -60,11 +60,11 @@ class Player:
                 if key[pygame.K_w] and self.jump == False:
                     self.vel_y = -30
                     self.jump = True
-                if key[pygame.K_r] or key[pygame.K_t]:
+                if key[pygame.K_r] or key[pygame.K_e]:
                     self.attack(target)
                     if key[pygame.K_r]:
                         self.attack_type = 1
-                    if key[pygame.K_t]:
+                    if key[pygame.K_e]:
                         self.attack_type = 2
             # правый герой
             if self.player == 2:
