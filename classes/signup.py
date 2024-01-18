@@ -11,11 +11,14 @@ from classes.login_db import LoginDb
 class Signup(QMainWindow):
     def __init__(self):
         super().__init__()
+        # подгрузка ui-файла
         uic.loadUi('ui/login.ui', self)
+        # активация кнопки на окне
         self.reg_btn.clicked.connect(self.insertData)
 
         self.loginDb = LoginDb('assets/login.db')
 
+    # регистрация нового пользователя
     def insertData(self):
         name = self.name_save.text()
         password = self.password_save.text()

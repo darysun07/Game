@@ -13,8 +13,9 @@ from classes.login_db import LoginDb
 class Home(QMainWindow):
     def __init__(self):
         super().__init__()
+        # подгрузка ui-файла
         uic.loadUi('ui/wild_west.ui', self)
-
+        # создание БД
         self.loginDb = LoginDb('assets/login.db')
         if self.loginDb.is_table('USERS'):
             pass
@@ -23,22 +24,30 @@ class Home(QMainWindow):
             self.loginDb.conn.execute("INSERT INTO USERS VALUES(?, ?)",
                                             ('admin', 'admin'))
             self.loginDb.conn.commit()
+        # активация кнопок на главном окне
         self.enter_btn.clicked.connect(self.loginCheck)
         self.signup_btn.clicked.connect(self.signup_window_opn)
         self.pravila.clicked.connect(self.pravila_window_opn)
 
+    # открытие окна выбора уровня
     def yrvn_window_opn(self):
         self.yrovni_window_opn = Yrovni()
         self.yrovni_window_opn.show()
+        self.close()
 
+    # открытие окна регистрации
     def signup_window_opn(self):
         self.signup_window_opn = classes.signup.Signup()
         self.signup_window_opn.show()
         self.close()
 
+    #  открытие окна правил
+
     def pravila_window_opn(self):
         self.pravila_window_opn = Pravila()
         self.pravila_window_opn.show()
+
+    # проверка на вход
 
     def loginCheck(self):
         name = self.name_check.text()
