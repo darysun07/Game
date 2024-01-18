@@ -1,7 +1,9 @@
+# импорт нужных библиотек и методов
 import pygame
 from pygame import mixer
-
 from PyQt5 import uic
+
+# импорт нужных классов
 from PyQt5.QtWidgets import QMainWindow
 
 from classes.player import Player
@@ -34,6 +36,7 @@ WIZARD_ANIMATION_STEPS = [8, 8, 1, 8, 8, 3, 7]
 
 
 class Yrovni(QMainWindow):
+    # подгрузка ui-файла с выбором уровня и активация кнопок на этом окне
     def __init__(self):
         super().__init__()
         uic.loadUi('ui/yrovni.ui', self)
@@ -45,7 +48,7 @@ class Yrovni(QMainWindow):
     def lgk_glav_window_opn(self):
         mixer.init()
         pygame.init()
-
+        # создание pygame-окна
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("Wild West")
 
@@ -55,7 +58,7 @@ class Yrovni(QMainWindow):
         last_count_update = pygame.time.get_ticks()
         score = [0, 0] # победы героев
         round_over = False
-
+        # подгрузка фоновой музыки
         pygame.mixer.music.load("assets/audio/music1.mp3")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1, 0.0, 5000)
@@ -64,15 +67,20 @@ class Yrovni(QMainWindow):
         magic_fx = pygame.mixer.Sound("assets/audio/magic.wav")
         magic_fx.set_volume(0.75)
 
+        # фон
         bg_image = pygame.image.load("assets/images/background/fon2.png").convert_alpha()
 
+        # спрайты
         warrior_sheet = pygame.image.load("assets/images/warrior/Sprites/warrior.png").convert_alpha()
         wizard_sheet = pygame.image.load("assets/images/wizard/Sprites/wizard.png").convert_alpha()
 
+        # иконка победы
         victory_img = pygame.image.load("assets/images/icons/victory.png").convert_alpha()
 
+        # картинка окончания игры
         game_over_img = pygame.image.load("assets/images/background/fon6.jpg").convert_alpha()
 
+        # шрифты
         count_font = pygame.font.Font("assets/fonts/turok.ttf", 100)
         score_font = pygame.font.Font("assets/fonts/turok.ttf", 30)
 
@@ -84,12 +92,14 @@ class Yrovni(QMainWindow):
             scaled_bg = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
             screen.blit(scaled_bg, (0, 0))
 
+        # прорисовка "health bar"ов игроков
         def draw_health_bar(health, x, y):
             value = health / 30
             pygame.draw.rect(screen, WHITE, (x - 2, y - 2, 404, 34))
             pygame.draw.rect(screen, PINK, (x, y, 400, 30))
             pygame.draw.rect(screen, GREEN, (x, y, 400 * value, 30))
 
+        # задаются данные игроков
         player_1 = Player(1, 200, 400, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_STEPS, sword_fx, 30)
         player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
 
@@ -105,6 +115,7 @@ class Yrovni(QMainWindow):
             draw_text("P1: " + str(score[0]), score_font, PINK, 60, 60)
             draw_text("P2: " + str(score[1]), score_font, PINK, 730, 60)
 
+            # метод начала игры после окончания счетчика
             if count_intro <= 0:
                 player_1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_2, round_over)
                 player_2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player_1, round_over)
@@ -120,6 +131,7 @@ class Yrovni(QMainWindow):
             player_1.draw(screen)
             player_2.draw(screen)
 
+            # начисление очков после победы одного из игроков
             if not round_over:
                 if not player_1.alive:
                     score[1] += 1
@@ -138,6 +150,7 @@ class Yrovni(QMainWindow):
                                       sword_fx, 30)
                     player_2 = Player(2, 850, 400, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_STEPS, magic_fx, 30)
 
+            # окончание игры
             if score[0] == 3 or score[1] == 3:
                 game_over_img = pygame.transform.scale(game_over_img, (SCREEN_WIDTH, SCREEN_HEIGHT))
                 screen.blit(game_over_img, (0, 0))

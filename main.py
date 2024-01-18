@@ -1,5 +1,7 @@
+# импорт нужных методов и классов
 import sys
 
+# импорт нужных классов
 import classes.home
 from PyQt5.QtWidgets import QApplication
 

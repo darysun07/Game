@@ -1,7 +1,9 @@
+# импорт нужных библиотек и методов
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QMessageBox
 
+# импорт нужных классов
 import classes.home
 from classes.login_db import LoginDb
 

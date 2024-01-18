@@ -1,10 +1,13 @@
+# импорт библиотеки
 import pygame
 
+# константы
 SPEED = 10
 GRAVITY = 2
 
 
 class Player:
+    # передача входных данных
     def __init__(self, player, x, y, flip, data, sprite_sheet, animation_steps, sound, health):
         self.player = player
         self.size = data[0]
@@ -28,6 +31,7 @@ class Player:
         self.health = health
         self.alive = True
 
+    # изменение анимаций (спрайтов) при движении
     def load_images(self, sprite_sheet, animation_steps):
         animation_list = []
         for y, animation in enumerate(animation_steps):
@@ -107,6 +111,7 @@ class Player:
         self.rect.x += dx
         self.rect.y += dy
 
+    # изменение анимаций во время смерти, ударов, прыжке и т.д.
     def update(self):
         if self.health <= 0:
             self.health = 0
@@ -144,6 +149,7 @@ class Player:
                     self.attacking = False
                     self.attack_cooldown = 20
 
+    # анимация во время удара
     def attack(self, target):
         if self.attack_cooldown == 0:
             self.attacking = True
